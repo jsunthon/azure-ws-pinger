@@ -1,23 +1,12 @@
 const http = require('http');
-const readline = require('readline'); 
-
-let mins, minsToMs;
+const mins = 15;
+const minsToMs = mins * 60 * 1000;
 const pingUrl = 'http://nasa-direct-stem.azurewebsites.net/webservice/v1/math/nfibonacci?n=4';
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
-rl.question('Please enter the ping interval in minutes:', (answer) => {
-    mins = answer;
-    minsToMs = mins * 60 * 1000;
-    console.log('You have entered ' + mins + ' minutes, or ' +  minsToMs + ' ms.');
-    rl.close();
-    startPinging();
-});
+startPinging();
 
 function pingTask() {
-    console.log('Pinging url: ' + pingUrl);
+    console.log('Pinging url: ' + pingUrl + '\n every ' + mins + ' mins, or ' + minsToMs + ' ms.');
     http.get(pingUrl, (response) => {
         const statusCode = response.statusCode;
         if (statusCode !== 200) {

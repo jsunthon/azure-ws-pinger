@@ -1,0 +1,12 @@
+{
+  "name": "azure-ws-pinger",
+  "version": "1.0.0",
+  "description": "Pings the ws hosted on azure once every 15 mins to ward off cold-starts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Sunthonlap",
+  "license": "ISC",
+  "dependencies": {}
+}
